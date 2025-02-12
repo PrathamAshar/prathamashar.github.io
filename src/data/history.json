@@ -3,7 +3,7 @@
       "role": "Quantum Machine Learning Researcher",
       "location": "College Park, MD",
       "organisation": "UMD FIRE Lab",
-      "startDate": "Nov, 2024",
+      "startDate": "Nov. 2024",
       "endDate": "Present",
       "experiences": [
         "Working under Dr. Shabnam Jabeen to research various Machine Learning techniques for data analysis",
@@ -14,8 +14,8 @@
       "role": "Software Engineering Intern",
       "location": "New York, NY",
       "organisation": "Radical AI",
-      "startDate": "May, 2024",
-      "endDate": "Aug, 2024",
+      "startDate": "May 2024",
+      "endDate": "Aug. 2024",
       "experiences": [
         "Contributed to the development of AI features using Google Cloud Platform for teaching product with 20,000 monthly users",
         "Utilized LangChain and SQLAlchemy to build flashcard-generation tool for educational YouTube videos",
@@ -26,8 +26,8 @@
       "role": "Software Engineering Intern",
       "location": "Clark, NJ",
       "organisation": "Grotto Engineering",
-      "startDate": "Nov 2023",
-      "endDate": "Mar, 2024",
+      "startDate": "Nov. 2023",
+      "endDate": "Mar. 2024",
       "experiences": [
         "Redeveloped public company website using React after company relocation to include new information and media",
         "Modified AutoCAD subassembly composer C++ program files to automatically update all design elements upon singular linkage modification",
