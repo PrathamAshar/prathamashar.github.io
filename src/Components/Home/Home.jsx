@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./home.module.css";
+import styles from "./Home.module.css";
 import { getImageUrl } from "../../utils";
 
 export const Home = () => {
