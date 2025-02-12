@@ -1,0 +1,190 @@
+@import "../../../vars.css";
+
+.section {
+  display: flex;
+  align-items: flex-start; /* Align title and content at the top */
+  gap: 2rem;
+  padding-left: 4rem;
+  padding-top: 4rem;
+  position: relative;
+  z-index: 1;
+} 
+
+.sideTitle {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--color-primary);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 2s infinite alternate;
+  margin: 0;
+  margin-right: 2rem; /* Add space between title and content */
+}
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary);
+  }
+  100% {
+    text-shadow: 0 0 20px var(--color-secondary), 0 0 40px var(--color-secondary);
+  }
+}
+
+.mainContent {
+  flex: 1;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  border-left: 5px solid var(--color-primary);
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.container:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.educationItem {
+  color: var(--color-text);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+
+.institution {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.location {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text);
+  opacity: 0.8;
+}
+
+.major {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.achievements {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.achievements li {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.coursework {
+  margin-top: 1.5rem;
+}
+
+.coursework h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.coursework p {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* Background blur effects */
+.educationBlur {
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  min-width: 350px;
+  min-height: 350px;
+  top: -10%;
+  left: -10%;
+  border-radius: 764px;
+  background: rgba(25, 55, 109, 0.7);
+  filter: blur(100px);
+  z-index: -1;
+  animation: blurMove 10s infinite alternate;
+}
+
+@keyframes blurMove {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(20px) translateY(20px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    flex-direction: column;
+    padding: 2rem 5%;
+  }
+
+  .sideTitle {
+    writing-mode: horizontal-tb; /* Rotate text back to horizontal */
+    transform: rotate(0);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+
+  .institution {
+    font-size: 1.25rem;
+  }
+
+  .location {
+    font-size: 0.9rem;
+  }
+
+  .major {
+    font-size: 1rem;
+  }
+
+  .achievements li {
+    font-size: 0.9rem;
+  }
+
+  .coursework h5 {
+    font-size: 1.1rem;
+  }
+
+  .coursework p {
+    font-size: 0.9rem;
+  }
+}

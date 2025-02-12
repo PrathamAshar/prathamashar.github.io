@@ -1,0 +1,108 @@
+@import "../../vars.css";
+
+.container {
+  background: rgba(24, 29, 76, 0.9);
+  border-radius: 15px;
+  padding: 1.5rem;
+  border-left: 5px solid var(--color-primary);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  width: 300px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.container:hover {
+  transform: scale(1.05);
+  background: rgba(24, 29, 76, 0.5);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.image {
+  width: 250px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 10px var(--color-primary));
+  transition: all 0.3s ease;
+}
+
+.container:hover .image {
+  filter: drop-shadow(0 0 20px var(--color-secondary));
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary);
+  }
+  100% {
+    text-shadow: 0 0 20px var(--color-secondary), 0 0 40px var(--color-secondary);
+  }
+}
+
+.description {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+  list-style-type: none;
+}
+
+.skill {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+.skill:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+}
+
+.link {
+  text-decoration: none;
+  background: var(--color-primary);
+  color: var(--color-text);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.link:hover {
+  background: var(--color-secondary);
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}

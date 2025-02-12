@@ -1,0 +1,37 @@
+[
+    {
+      "title": "ApplAI",
+      "imageSrc": "projects/applai.png",
+      "description": "Uses Google Gemini to screen, fact-check, and rank resumes. 5th place JHU AI Hackathon.",
+      "skills": ["React", "ML", "Web Development"],
+      "demo": "https://drive.google.com/file/d/16wRulM5r0VuHUNZpBMENh_LfYAivntOu/view?usp=sharing",
+      "source": "https://www.github.com/PrathamAshar/applai"
+    },
+    {
+      "title": "S&P 500 Inference Model",
+      "imageSrc": "projects/sp.png",
+      "description": "Trains model with sk-learn on Yahoo Finance API to predict the S&P 500 index.",
+      "skills": ["Python", "ML", "PyTorch"],
+      "source": "https://github.com/PrathamAshar/sp500predictor"
+    },
+    {
+      "title": "grottoengineering.com",
+      "imageSrc": "projects/grotto.png",
+      "description": "Public company website for Grotto Engineering Associates.",
+      "skills": ["HTML/CSS", "React", "Web Development"],
+      "demo": "grottoengineering.com"
+    },
+    {
+      "title": "VisualMath Pro",
+      "imageSrc": "projects/vmp.jpg",
+      "description": "Robot that helps visualize complex functions by creating real-life simulations of 3D curves and surfaces.",
+      "skills": ["C/C++", "Arduino", "Robotics"]
+    },
+    {
+      "title": "This Site!",
+      "imageSrc": "projects/portfolio.png",
+      "description": "A showcase of my work and skills, shaped by creativity and bound only by imagination.",
+      "skills": ["React", "TypeScript", "Web Development"],
+      "demo": "#"
+    }
+  ]

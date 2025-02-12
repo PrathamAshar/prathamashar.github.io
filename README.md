@@ -1,0 +1,1 @@
+Hi! This is my portfolio, made using React, JavaScript, and Vite. Feel free to contact me at pashar@umd.edu.

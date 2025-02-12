@@ -1,0 +1,113 @@
+@import "../../vars.css";
+
+.container {
+  position: relative;
+  padding: 4rem 10%;
+  text-align: center;
+  z-index: 1;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    var(--color-bg) 0%,
+    rgba(103, 157, 239, 0.2) 100%
+  );
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 2s infinite alternate;
+  margin-bottom: 2rem;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary);
+  }
+  100% {
+    text-shadow: 0 0 20px var(--color-secondary), 0 0 40px var(--color-secondary);
+  }
+}
+
+.text p {
+  font-size: 1.2rem;
+  color: var(--color-text);
+  margin-bottom: 2rem;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  border: 2px solid var(--color-primary);
+  transition: all 0.3s ease;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.link:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.icons {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 0 10px var(--color-primary));
+  transition: all 0.3s ease;
+}
+
+.link:hover .icons {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 20px var(--color-secondary));
+}
+
+.link a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+.link:hover a {
+  color: var(--color-primary);
+}
+
+@media screen and (max-width: 768px) {
+  .links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .link {
+    width: 80%;
+    justify-content: center;
+  }
+}
