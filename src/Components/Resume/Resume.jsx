@@ -6,15 +6,21 @@ import Skills from "./Skills/Skills";
 
 export const Resume = () => {
   return (
-    <div className={styles.container} id="resume">
-      <h1>Resume</h1>
-      <div className={styles.content}>
+    <div className={styles.window}>
+      <div className={styles.titleBar}>
+        <span className={styles.titleText}>My Documents - Resume</span>
+        <div className={styles.windowButtons}>
+          <button className={styles.btn}>–</button>
+          <button className={styles.btn}>□</button>
+          <button className={styles.btn}>×</button>
+        </div>
+      </div>
+
+      <div className={styles.contentArea}>
         <Education />
         <Experience />
         <Skills />
       </div>
-      <div className={styles.resumeBlurTop}></div>
-      <div className={styles.resumeBlurBottom}></div>
     </div>
   );
 };

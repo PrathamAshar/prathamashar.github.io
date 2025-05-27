@@ -1,79 +1,62 @@
 import React from "react";
 import styles from "./Education.module.css";
 
-const Education = () => {
+const bootLogs = [
+  {
+    school: "University of Maryland",
+    location: "College Park, MD",
+    degree: "B.S. in Computer Science & Machine Learning, Minor in Mathematics",
+    lines: [
+      "[OK] Loaded Module: Machine Learning Research (FIRE Program)",
+      "[OK] Status: Dean’s List (All Semesters)",
+      "[OK] Installed: Algorithms, Data Structures, Systems",
+      "[OK] Installed: Quantum Computing, Linear Algebra, JS Web Dev",
+    ],
+  },
+  {
+    school: "Edison Academy Magnet School",
+    location: "Edison, NJ",
+    degree: "High School Diploma in Engineering Technologies",
+    lines: [
+      "[OK] Achievements: AP Scholar, USACO Gold, ACSL Finalist",
+      "[OK] Installed: AP CS A (5), AP Calc BC (5), AP Physics C (5)",
+      "[OK] Installed: Civil & Mechanical Engineering Foundation",
+    ],
+  },
+  {
+    school: "Middlesex College",
+    location: "Edison, NJ",
+    degree: "Mathematics Dual Enrollment Program",
+    lines: [
+      "[OK] Installed: Discrete Math, Calc III, Differential Equations",
+      "[OK] Optimized for Advanced Theoretical Workload",
+    ],
+  },
+];
+
+export const Education = () => {
   return (
-    <div className={styles.section}>
-      <h2 className={styles.sideTitle}>Education</h2>
-      <div className={styles.mainContent}>
-        <div className={styles.container}>
-          <div className={styles.educationItem}>
-            <div className={styles.header}>
-              <div>
-                <h4 className={styles.institution}>University of Maryland</h4>
-              </div>
-              <div className={styles.location}>College Park, MD</div>
+    <div className={styles.terminal}>
+      <div className={styles.header}>Initializing Academic Kernel...</div>
+      <div className={styles.console}>
+        {bootLogs.map((entry, index) => (
+          <div key={index} className={styles.entry}>
+            <div className={styles.schoolLine}>
+              ➤ <span className={styles.school}>{entry.school}</span>{" "}
+              <span className={styles.location}>({entry.location})</span>
             </div>
-
-            <p className={styles.major}>B.S. in Computer Science & Machine Learning, Minor in Mathematics</p>
-
-            <ul className={styles.achievements}>
-              <li>• Accepted into the UMD FIRE Machine Learning research program, earned an A every semester</li>
-              <li>• Granted Academic Honors, Dean’s list every semester</li>
-            </ul>
-
-            <div className={styles.coursework}>
-              <h5>Select Coursework:</h5>
-              <p>
-                Algorithms, Data Structures, Number Theory, Computer Systems, Organization of Programming Languages,
-                Discrete Math, Linear Algebra, Object Oriented Programming, Quantum Computing, Web Development in JavaScript
-              </p>
+            <div className={styles.degree}>{entry.degree}</div>
+            <div className={styles.lines}>
+              {entry.lines.map((line, i) => (
+                <div key={i} className={styles.logLine}>
+                  {line}
+                </div>
+              ))}
             </div>
+            <br />
           </div>
-        </div>
-
-        <div className={styles.container}>
-          <div className={styles.educationItem}>
-            <div className={styles.header}>
-              <div>
-                <h4 className={styles.institution}>Edison Academy Magnet School</h4>
-              </div>
-              <div className={styles.location}>Edison, NJ</div>
-            </div>
-
-            <p className={styles.major}>High School Diploma in Engineering Technologies</p>
-
-            <ul className={styles.achievements}>
-              <li>• AP Scholar with Distinction, National Merit Commended Scholar</li>
-              <li>• USACO Gold Division, American Computer Science League Finalist</li>
-            </ul>
-
-            <div className={styles.coursework}>
-              <h5>Select Coursework:</h5>
-              <p> AP Computer Science A (5), AP Calculus BC (5), AP Statistics (5), AP Physics C (5), Quantum Computing, Python Fundamentals, Civil/Mechanical Engineering
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.container}>
-          <div className={styles.educationItem}>
-            <div className={styles.header}>
-              <div>
-                <h4 className={styles.institution}>Middlesex College</h4>
-              </div>
-              <div className={styles.location}>Edison, NJ</div>
-            </div>
-
-            <p className={styles.major}>Mathematics Dual Enrollment with High School</p>
-
-            <div className={styles.coursework}>
-              <h5>Select Coursework:</h5>
-              <p>Linear Algebra, Discrete Math, Analytic Geometry & Calculus III, Differential Equations, Precalculus
-              </p>
-            </div>
-          </div>
-        </div>
+        ))}
+        <div className={styles.prompt}>Academic System Ready ▋</div>
       </div>
     </div>
   );

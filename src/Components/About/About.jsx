@@ -1,44 +1,55 @@
 import React from "react";
-
 import styles from "./About.module.css";
 import { getImageUrl } from "../../utils";
 
 export const About = () => {
+  const aboutItems = [
+    {
+      title: "Frontend Developer",
+      description:
+        "I build sleek, performant, and responsive websites with React and JS magic.",
+      icon: "about/cursor.png",
+      status: "Active",
+    },
+    {
+      title: "Data Engineer",
+      description:
+        "I mine, clean, and transform data into insights that power decisions.",
+      icon: "about/server.png",
+      status: "Running",
+    },
+    {
+      title: "AI/ML Engineer",
+      description:
+        "From NLP models to ML pipelines — I design, train, and deploy smart systems.",
+      icon: "about/gpt.png",
+      status: "Experimental",
+    },
+  ];
+
   return (
-    <section className={styles.container} id="about">
-      <h1>About</h1>
-      <div className={styles.content}>
-        <ul className={styles.aboutItems}>
-          <li className={styles.aboutItem}>
-            <img src={getImageUrl("about/cursor.png")} alt="Cursor icon" />
-            <div className={styles.aboutItemText}>
-              <h3>Frontend Developer</h3>
-              <p>
-                I'm a frontend developer with experience in building responsive, eye-catching,
-                and optimized websites.
-              </p>
+    <div className={styles.controlPanel}>
+      <h1 className={styles.heading}>System Overview</h1>
+      <div className={styles.tiles}>
+        {aboutItems.map((item, index) => (
+          <div className={styles.tile} key={index}>
+            <div className={styles.tileHeader}>
+              <img
+                src={getImageUrl(item.icon)}
+                alt={`${item.title} Icon`}
+                className={styles.icon}
+              />
+              <span className={styles.title}>{item.title}</span>
+              <span className={`${styles.status} ${styles[item.status.toLowerCase()]}`}>
+                {item.status}
+              </span>
             </div>
-          </li>
-          <li className={styles.aboutItem}>
-            <img src={getImageUrl("about/server.png")} alt="Server icon" />
-            <div className={styles.aboutItemText}>
-              <h3>Data Engineer</h3>
-              <p>
-                I have experience in data mining, cleaning, and analyzing to extract insights and drive business decisions.
-              </p>
-            </div>
-          </li>
-          <li className={styles.aboutItem}>
-            <img src={getImageUrl("about/gpt.png")} alt="AI icon" />
-            <div className={styles.aboutItemText}>
-              <h3>AI/ML Engineer</h3>
-              <p>
-                I have worked on developing machine learning models and natural language processing applications.
-              </p>
-            </div>
-          </li>
-        </ul>
+            <div className={styles.description}>{item.description}</div>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 };
+
+export default About;

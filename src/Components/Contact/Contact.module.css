@@ -1,113 +1,93 @@
 @import "../../vars.css";
 
-.container {
-  position: relative;
-  padding: 4rem 10%;
-  text-align: center;
-  z-index: 1;
-  overflow: hidden;
-  background: linear-gradient(
-    180deg,
-    var(--color-bg) 0%,
-    rgba(103, 157, 239, 0.2) 100%
-  );
-}
-
-h1 {
-  font-size: 3.5rem;
-  font-weight: 900;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: glow 2s infinite alternate;
-  margin-bottom: 2rem;
-}
-
-@keyframes glow {
-  0% {
-    text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary);
-  }
-  100% {
-    text-shadow: 0 0 20px var(--color-secondary), 0 0 40px var(--color-secondary);
-  }
-}
-
-.text p {
-  font-size: 1.2rem;
-  color: var(--color-text);
-  margin-bottom: 2rem;
-}
-
-.links {
+.mailWindow {
   display: flex;
-  justify-content: center;
-  gap: 2rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  flex-direction: column;
+  border: 2px solid var(--color-dark);
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+  background: var(--color-light);
+  font-family: var(--font-w95);
+  height: 100%;
 }
 
-.link {
+.titleBar {
+  background-color: var(--color-accent);
+  color: white;
+  padding: 6px 12px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  border: 2px solid var(--color-primary);
-  transition: all 0.3s ease;
-  animation: fadeInUp 1s ease-in-out;
+  font-weight: bold;
 }
 
-.link:hover {
-  transform: translateY(-10px);
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+.closeBtn {
+  background: white;
+  border: 1px solid black;
+  font-size: 14px;
+  padding: 2px 8px;
+  cursor: pointer;
 }
 
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.toolbar {
+  display: flex;
+  padding: 6px;
+  background-color: #d3d3d3;
+  border-bottom: 2px inset #aaa;
+  gap: 8px;
 }
 
-.icons {
-  width: 24px;
-  height: 24px;
-  filter: drop-shadow(0 0 10px var(--color-primary));
-  transition: all 0.3s ease;
+.button {
+  background-color: #f4f4f4;
+  border: 2px outset #ccc;
+  padding: 4px 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.link:hover .icons {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 20px var(--color-secondary));
+.button:hover {
+  background-color: #e0e0e0;
 }
 
-.link a {
-  text-decoration: none;
-  font-size: 1rem;
-  color: var(--color-text);
-  transition: all 0.3s ease;
+.fields {
+  padding: 10px;
+  background-color: #ffffff;
+  border-bottom: 2px inset #ccc;
+  font-size: 0.95rem;
 }
 
-.link:hover a {
+.field {
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.field a {
   color: var(--color-primary);
+  text-decoration: none;
+  font-weight: bold;
 }
 
-@media screen and (max-width: 768px) {
-  .links {
-    flex-direction: column;
-    align-items: center;
-  }
+.field a:hover {
+  text-decoration: underline;
+}
 
-  .link {
-    width: 80%;
-    justify-content: center;
-  }
+.body {
+  flex-grow: 1;
+  padding: 12px;
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+  resize: none;
+  border: none;
+  outline: none;
+  background-color: #fcfcfc;
+  color: #111;
+}
+
+.statusBar {
+  font-size: 0.8rem;
+  padding: 6px 10px;
+  background: #e6e6e6;
+  border-top: 2px inset #aaa;
+  font-style: italic;
+  color: #444;
 }

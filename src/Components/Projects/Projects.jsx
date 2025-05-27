@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./Projects.module.css";
 import projects from "../../data/projects.json";
 import { ProjectCard } from "./ProjectCard";
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 export const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -18,35 +18,39 @@ export const Projects = () => {
   };
 
   return (
-    <div>
-      <h1 className={styles}>Projects</h1>
-      <section className={styles.container} id="projects">
-        <div className={styles.projectsWrapper}>
-          <button className={styles.arrowButton} onClick={handlePrev}>
-            <ArrowLeft size={24} />
-          </button>
-          <div className={styles.projectsCarousel}>
-            {projects.map((project, id) => (
+    <div className={styles.launcher}>
+      <h1 className={styles.header}>Software Center - Project Carousel</h1>
+      <div className={styles.carouselContainer}>
+        <button className={styles.navButton} onClick={handlePrev}>
+          <ArrowLeft size={24} />
+        </button>
+        <div className={styles.carousel}>
+          {projects.map((project, index) => {
+            const rotation = (index - currentIndex) * 50;
+            const scale = index === currentIndex ? 1 : 0.85;
+            const opacity = index === currentIndex ? 1 : 0.4;
+
+            return (
               <div
-                key={id}
+                key={index}
                 className={`${styles.projectCardWrapper} ${
-                  id === currentIndex ? styles.active : ""
+                  index === currentIndex ? styles.active : ""
                 }`}
                 style={{
-                  transform: `rotateY(${
-                    (id - currentIndex) * 60
-                  }deg) translateZ(300px)`,
+                  transform: `translate(-50%, -50%) rotateY(${(index - currentIndex) * 60}deg) translateZ(300px)`,
+                  opacity,
+                  zIndex: index === currentIndex ? 10 : 1,
                 }}
               >
                 <ProjectCard project={project} />
               </div>
-            ))}
-          </div>
-          <button className={styles.arrowButton} onClick={handleNext}>
-            <ArrowRight size={24} />
-          </button>
+            );
+          })}
         </div>
-      </section>
+        <button className={styles.navButton} onClick={handleNext}>
+          <ArrowRight size={24} />
+        </button>
+      </div>
     </div>
   );
 };

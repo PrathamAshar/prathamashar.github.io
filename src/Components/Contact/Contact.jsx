@@ -3,49 +3,34 @@ import styles from "./Contact.module.css";
 import { getImageUrl } from "../../utils";
 
 export const Contact = () => {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   return (
-    <footer id="contact" className={styles.container}>
-      <div className={styles.text}>
-        <h1>Contact</h1>
-        <p>Feel free to reach out!</p>
+    <div className={styles.mailWindow}>
+      <div className={styles.titleBar}>
+        <span>Compose: new message</span>
+        <button className={styles.closeBtn}>X</button>
       </div>
-      <ul className={styles.links}>
-        <li className={styles.link}>
-          <img
-            className={styles.icons}
-            src={getImageUrl("contact/emailIcon.png")}
-            alt="Email icon"
-          />
-          <a href="mailto:pashar@terpmail.umd.edu">Email</a>
-        </li>
-        <li className={styles.link}>
-          <img
-            className={styles.icons}
-            src={getImageUrl("contact/linkedinIcon.png")}
-            alt="LinkedIn icon"
-          />
-          <a href="https://www.linkedin.com/in/pratham-ashar-48699a257/" target="_blank" rel="noopener noreferrer">
-            LinkedIn
-          </a>
-        </li>
-        <li className={styles.link}>
-          <img
-            className={styles.icons}
-            src={getImageUrl("contact/githubIcon.png")}
-            alt="Github icon"
-          />
-          <a href="https://www.github.com/prathamashar" target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>
-        </li>
-      </ul>
-    </footer>
+      <div className={styles.toolbar}>
+        <button className={styles.button}>Send 📤</button>
+        <button className={styles.button}>Attach 📎</button>
+        <button className={styles.button}>Format 🖋</button>
+      </div>
+      <div className={styles.fields}>
+        <div className={styles.field}><strong>To:</strong> pashar@terpmail.umd.edu</div>
+        <div className={styles.field}><strong>CC: </strong> 
+          <a href="https://github.com/prathamashar" target="_blank">github.com/prathamashar</a>,{" "}
+          <a href="https://www.linkedin.com/in/prathamashar" target="_blank">linkedin.com/in/prathamashar</a>
+        </div>
+        <div className={styles.field}><strong>Subject:</strong> I'd like to connect! </div>
+      </div>
+      <textarea
+        className={styles.body}
+        placeholder="Type your message here..."
+      />
+      <div className={styles.statusBar}>
+        Status: Draft • Word Count: 0 • Format: Plain Text
+      </div>
+    </div>
   );
 };
+
+export default Contact;

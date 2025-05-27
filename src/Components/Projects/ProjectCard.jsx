@@ -6,30 +6,30 @@ export const ProjectCard = ({
   project: { title, imageSrc, description, skills, demo, source },
 }) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.card}>
       <img
         src={getImageUrl(imageSrc)}
-        alt={`Image of ${title}`}
-        className={styles.image}
+        alt={title}
+        className={styles.preview}
       />
-      <h3 className={styles.title}>{title}</h3>
+      <h2 className={styles.title}>{title}</h2>
       <p className={styles.description}>{description}</p>
       <ul className={styles.skills}>
-        {skills.map((skill, id) => (
-          <li key={id} className={styles.skill}>
+        {skills.map((skill, i) => (
+          <li key={i} className={styles.skill}>
             {skill}
           </li>
         ))}
       </ul>
-      <div className={styles.links}>
+      <div className={styles.actions}>
         {demo && (
-          <a href={demo} className={styles.link} target="_blank" rel="noopener noreferrer">
-            Demo
+          <a href={demo} target="_blank" rel="noreferrer" className={styles.button}>
+            ▶ Run
           </a>
         )}
         {source && (
-          <a href={source} className={styles.link} target="_blank" rel="noopener noreferrer">
-            Source
+          <a href={source} target="_blank" rel="noreferrer" className={styles.buttonAlt}>
+            📁 Source
           </a>
         )}
       </div>

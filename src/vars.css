@@ -1,11 +1,13 @@
 :root {
-    /* Colors */
-    --color-text: #fff;
-    --color-primary: #3299c9;
-    --color-secondary: #19376d;
-    --color-dark: #0b2447;
-    --color-bg: #04152d;
-  
-    /* Fonts */
-    --font-roboto: "Roboto";
-  }
+  /* Windows 95 Theme Colors */
+  --color-bg: #c0c0c0;            /* Light gray background */
+  --color-dark: #808080;          /* Dark gray borders */
+  --color-light: #ffffff;         /* Light window fill */
+  --color-shadow: #404040;        /* Drop shadows */
+  --color-highlight: #dfdfdf;     /* Inner bevel */
+  --color-accent: #000080;        /* Title bar background */
+  --color-accent-text: #ffffff;   /* Title bar text */
+
+  /* Fonts */
+  --font-w95: 'VT323', monospace;
+}

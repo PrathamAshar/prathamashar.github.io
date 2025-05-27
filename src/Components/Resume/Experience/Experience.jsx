@@ -2,32 +2,42 @@ import React from "react";
 import styles from "./Experience.module.css";
 import history from "../../../data/history.json";
 
-const Experience = () => {
+export const Experience = () => {
   return (
-    <div className={styles.section}>
-      <h2 className={styles.sideTitle}>Experience</h2>
-      <div className={styles.mainContent}>
-        <ul className={styles.history}>
-          {history.map((historyItem, id) => (
-            <li key={id} className={styles.historyItem}>
-              <div className={styles.historyItemContent}>
-                <div className={styles.header}>
-                  <h3 className={styles.company}>{historyItem.organisation}</h3>
-                  <h3 className={styles.location}>{historyItem.location}</h3>
-                </div>
-                <div className={styles.subheader}>
-                  <p className={styles.role}>{historyItem.role}</p>
-                  <p className={styles.duration}>{`${historyItem.startDate} - ${historyItem.endDate}`}</p>
-                </div>
-                <ul className={styles.experiences}>
-                  {historyItem.experiences.map((experience, id) => (
-                    <li key={id} className={styles.experience}>{experience}</li>
-                  ))}
-                </ul>
-              </div>
-            </li>
-          ))}
-        </ul>
+    <div className={styles.taskManager}>
+      <h1 className={styles.header}>Task Manager - Running Experience</h1>
+      <div className={styles.tableHeader}>
+        <span>Process</span>
+        <span>Role</span>
+        <span>Runtime</span>
+        <span>CPU</span>
+        <span>Threads</span>
+      </div>
+
+      <div className={styles.rows}>
+        {history.map((job, index) => (
+          <div key={index} className={styles.row}>
+            <span className={styles.process}>{job.organisation}</span>
+            <span className={styles.role}>{job.role}</span>
+            <span className={styles.duration}>
+              {job.startDate} – {job.endDate}
+            </span>
+            <span className={styles.cpu}>
+              {(Math.random() * 30 + 5).toFixed(1)}%
+            </span>
+            <span className={styles.threads}>
+              {job.experiences.length + Math.floor(Math.random() * 3)}
+            </span>
+
+            <ul className={styles.log}>
+              {job.experiences.map((item, i) => (
+                <li key={i} className={styles.logItem}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -1,108 +1,90 @@
 @import "../../vars.css";
 
-.container {
-  background: rgba(24, 29, 76, 0.9);
-  border-radius: 15px;
-  padding: 1.5rem;
-  border-left: 5px solid var(--color-primary);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  width: 300px;
-  height: 500px;
+.card {
+  width: 320px;
+  height: 480px;
+  background: linear-gradient(to bottom right, #f4f4f4, #dce9ff);
+  border: 2px solid var(--color-dark);
+  box-shadow: inset -2px -2px var(--color-highlight), inset 2px 2px var(--color-shadow),
+              4px 4px 20px rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 10px;
+  font-family: var(--font-w95);
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
-  text-align: center;
-}
-
-.container:hover {
-  transform: scale(1.05);
-  background: rgba(24, 29, 76, 0.5);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-}
-
-.image {
-  width: 250px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-  filter: drop-shadow(0 0 10px var(--color-primary));
+  transform-style: preserve-3d;
   transition: all 0.3s ease;
 }
 
-.container:hover .image {
-  filter: drop-shadow(0 0 20px var(--color-secondary));
+.card:hover {
+  transform: scale(1.03) rotateX(1deg);
+  box-shadow: 0 0 12px var(--color-primary), 0 0 22px var(--color-secondary);
+}
+
+.preview {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border: 2px inset #ccc;
+  margin-bottom: 10px;
 }
 
 .title {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: bold;
   color: var(--color-primary);
-  margin-bottom: 0.5rem;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: glow 2s infinite alternate;
-}
-
-@keyframes glow {
-  0% {
-    text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary);
-  }
-  100% {
-    text-shadow: 0 0 20px var(--color-secondary), 0 0 40px var(--color-secondary);
-  }
+  text-align: center;
 }
 
 .description {
   font-size: 0.9rem;
-  color: var(--color-text);
-  margin-bottom: 1rem;
+  color: #222;
+  text-align: center;
+  margin: 10px 0;
 }
 
 .skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 6px;
   justify-content: center;
   margin-bottom: 1rem;
-  list-style-type: none;
 }
 
 .skill {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  color: var(--color-text);
-  transition: all 0.3s ease;
-}
-
-.skill:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: scale(1.1);
-}
-
-.links {
-  display: flex;
-  gap: 1rem;
-}
-
-.link {
-  text-decoration: none;
-  background: var(--color-primary);
-  color: var(--color-text);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-}
-
-.link:hover {
+  font-size: 0.75rem;
   background: var(--color-secondary);
-  transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.button,
+.buttonAlt {
+  text-decoration: none;
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: 2px outset var(--color-dark);
+  background: var(--color-primary);
+  color: white;
+  transition: all 0.25s ease;
+  text-align: center;
+}
+
+.buttonAlt {
+  background: var(--color-secondary);
+}
+
+.button:hover,
+.buttonAlt:hover {
+  background: var(--color-accent);
+  box-shadow: 0 0 10px var(--color-accent);
+  transform: scale(1.05);
 }

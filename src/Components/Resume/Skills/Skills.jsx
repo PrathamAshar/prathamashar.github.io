@@ -3,17 +3,36 @@ import styles from "./Skills.module.css";
 import { getImageUrl } from "../../../utils";
 import skills from "../../../data/skills.json";
 
-const Skills = () => {
+export const Skills = () => {
+  const categories = [...new Set(skills.map((s) => s.category))];
+
   return (
-    <div className={styles.section}>
-      <h2 className={styles.sideTitle}>Skills</h2>
-      <div className={styles.skillsGrid}>
-        {skills.map((skill, id) => (
-          <div key={id} className={styles.skill}>
-            <div className={styles.skillImageContainer}>
-              <img src={getImageUrl(skill.imageSrc)} alt={skill.title} />
+    <div className={styles.manager}>
+      <h1 className={styles.heading}>Device Manager - Skills Registry</h1>
+      <div className={styles.driverList}>
+        {categories.map((category, i) => (
+          <div key={i} className={styles.categoryBlock}>
+            <h2 className={styles.category}>{category}</h2>
+            <div className={styles.grid}>
+              {skills
+                .filter((skill) => skill.category === category)
+                .map((skill, index) => (
+                  <div key={index} className={styles.driverCard}>
+                    <img
+                      src={getImageUrl(skill.imageSrc)}
+                      alt={skill.title}
+                      className={styles.icon}
+                    />
+                    <div className={styles.info}>
+                      <strong>{skill.title}</strong>
+                      <span className={styles.version}>v{skill.version}</span>
+                      <span className={`${styles.status} ${styles[skill.status.toLowerCase()]}`}>
+                        {skill.status}
+                      </span>
+                    </div>
+                  </div>
+                ))}
             </div>
-            <p>{skill.title}</p>
           </div>
         ))}
       </div>

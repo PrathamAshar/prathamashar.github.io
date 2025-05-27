@@ -1,50 +1,86 @@
 [
-    {
-      "title": "Python",
-      "imageSrc": "skills/python.png"
-    },
-    {
-      "title": "Java",
-      "imageSrc": "skills/java.png"
-    },
-    {
-      "title": "C/C++",
-      "imageSrc": "skills/c.png"
-    },
-    {
-      "title": "PyTorch",
-      "imageSrc": "skills/PyTorch.png"
-    },
-    {
-      "title": "AI & ML",
-      "imageSrc": "skills/ml.png"
-    },
-    {
-      "title": "React/Node.js",
-      "imageSrc": "skills/react.png"
-    },
-    {
-      "title": "HTML",
-      "imageSrc": "skills/html.png"
-    },
-    {
-      "title": "CSS",
-      "imageSrc": "skills/css.png"
-    },
-    {
-      "title": "JS/TypeScript",
-      "imageSrc": "skills/javascript.png"
-    },
-    {
-      "title": "SQL",
-      "imageSrc": "skills/sql.png"
-    },
-    {
-      "title": "Git",
-      "imageSrc": "skills/git.png"
-    },
-    {
-      "title": "Figma",
-      "imageSrc": "skills/figma.png"
-    }
-  ]
+  {
+    "title": "Python",
+    "imageSrc": "skills/python.png",
+    "version": "3.11",
+    "status": "Working",
+    "category": "Languages"
+  },
+  {
+    "title": "Java",
+    "imageSrc": "skills/java.png",
+    "version": "17",
+    "status": "Working",
+    "category": "Languages"
+  },
+  {
+    "title": "C/C++",
+    "imageSrc": "skills/c.png",
+    "version": "C++17",
+    "status": "Working",
+    "category": "Languages"
+  },
+  {
+    "title": "PyTorch",
+    "imageSrc": "skills/PyTorch.png",
+    "version": "2.1",
+    "status": "Experimental",
+    "category": "ML Libraries"
+  },
+  {
+    "title": "AI & ML",
+    "imageSrc": "skills/ml.png",
+    "version": "Stable",
+    "status": "Working",
+    "category": "ML Libraries"
+  },
+  {
+    "title": "React/Node.js",
+    "imageSrc": "skills/react.png",
+    "version": "18 / 20",
+    "status": "Working",
+    "category": "Frameworks"
+  },
+  {
+    "title": "HTML",
+    "imageSrc": "skills/html.png",
+    "version": "5.3",
+    "status": "Working",
+    "category": "Web"
+  },
+  {
+    "title": "CSS",
+    "imageSrc": "skills/css.png",
+    "version": "3",
+    "status": "Working",
+    "category": "Web"
+  },
+  {
+    "title": "JS/TypeScript",
+    "imageSrc": "skills/javascript.png",
+    "version": "ES2023 / 5.2",
+    "status": "Working",
+    "category": "Languages"
+  },
+  {
+    "title": "SQL",
+    "imageSrc": "skills/sql.png",
+    "version": "ANSI-2016",
+    "status": "Working",
+    "category": "Data"
+  },
+  {
+    "title": "Git",
+    "imageSrc": "skills/git.png",
+    "version": "2.42",
+    "status": "Working",
+    "category": "Tools"
+  },
+  {
+    "title": "Figma",
+    "imageSrc": "skills/figma.png",
+    "version": "Current",
+    "status": "Outdated",
+    "category": "Design"
+  }
+]

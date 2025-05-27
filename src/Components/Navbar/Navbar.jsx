@@ -5,6 +5,7 @@ import { getImageUrl } from '../../utils';
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [time, setTime] = useState(new Date());
 
   const handleScroll = (event, sectionId) => {
     event.preventDefault();
@@ -38,32 +39,34 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScrollSpy);
   }, []);
 
+  useEffect(() => {
+    const timer = setInterval(() => setTime(new Date()), 60000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <nav className={styles.navbar}>
-      <div className={styles.menu}>
-        <img
-          className={styles.menuBtn}
-          src={
-            menuOpen
-              ? getImageUrl('nav/closeIcon.png')
-              : getImageUrl('nav/menuIcon.png')
-          }
-          alt="menu-button"
-          onClick={() => setMenuOpen(!menuOpen)}
-        />
-        <ul className={`${styles.menuItems} ${menuOpen && styles.menuOpen}`} onClick={() => setMenuOpen(false)}>
-          {['home', 'about', 'resume', 'projects'].map((id) => (
-            <li key={id}>
-              <a
-                href={`#${id}`}
-                onClick={(e) => handleScroll(e, id)}
-                className={activeSection === id ? styles.active : ''}
-              >
-                {id.charAt(0).toUpperCase() + id.slice(1)}
-              </a>
-            </li>
-          ))}
-        </ul>
+      <div className={styles.start}>
+        <img src={getImageUrl('nav/windowsIcon.png')} alt="Start" />
+        <span>Start</span>
+      </div>
+
+      <ul className={styles.menuItems}>
+        {['home', 'about', 'resume', 'projects'].map((id) => (
+          <li key={id}>
+            <a
+              href={`#${id}`}
+              onClick={(e) => handleScroll(e, id)}
+              className={activeSection === id ? styles.active : ''}
+            >
+              {id.charAt(0).toUpperCase() + id.slice(1)}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div className={styles.clock}>
+        {time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
       </div>
     </nav>
   );
