@@ -20,7 +20,7 @@ const bootLogs = [
     lines: [
       "[OK] Achievements: AP Scholar with Distinction, USACO Gold",
       "[OK] Installed: AP CS A (5), AP Calc BC (5), AP Stats (5)",
-      "[OK] Installed: AP Physics C (5), Quantum Computing, Python Programming",
+      "[OK] Installed: AP Physics C (5), Quantum Computing, Python",
     ],
   },
   {
