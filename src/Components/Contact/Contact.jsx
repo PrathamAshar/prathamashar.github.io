@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Contact.module.css";
 import { getImageUrl } from "../../utils";
 
+// ...existing code...
 export const Contact = () => {
+  const [message, setMessage] = useState("");
+  const [wordCount, setWordCount] = useState(0);
+  const [format, setFormat] = useState("Plain Text");
+  const [status, setStatus] = useState("Draft");
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setMessage(value);
+
+    const words = value.trim().split(/\s+/).filter(Boolean);
+    setWordCount(words.length);
+  };
+
+  // Send button: show a sent status and clear the message
+  const handleSend = () => {
+    setStatus("Sent");
+    setMessage("");
+    setWordCount(0);
+    setTimeout(() => setStatus("Draft"), 2000); // Reset status after 2s
+  };
+
+  // Format button: toggle between Plain Text and Markdown
+  const handleFormat = () => {
+    setFormat((prev) => (prev === "Plain Text" ? "Markdown" : "Plain Text"));
+  };
+
   return (
     <div className={styles.mailWindow}>
       <div className={styles.titleBar}>
@@ -10,9 +37,10 @@ export const Contact = () => {
         <button className={styles.closeBtn}>X</button>
       </div>
       <div className={styles.toolbar}>
-        <button className={styles.button}>Send 📤</button>
-        <button className={styles.button}>Attach 📎</button>
-        <button className={styles.button}>Format 🖋</button>
+        <button className={styles.button} onClick={handleSend}>Send 📤</button>
+        <button className={styles.button} onClick={handleFormat}>
+          Format 🖋
+        </button>
       </div>
       <div className={styles.fields}>
         <div className={styles.field}><strong>To:</strong> pashar@terpmail.umd.edu</div>
@@ -25,9 +53,11 @@ export const Contact = () => {
       <textarea
         className={styles.body}
         placeholder="Type your message here..."
+        value={message}
+        onChange={handleChange}
       />
       <div className={styles.statusBar}>
-        Status: Draft • Word Count: 0 • Format: Plain Text
+        Status: {status} • Word Count: {wordCount} • Format: {format}
       </div>
     </div>
   );

@@ -4,40 +4,41 @@ import history from "../../../data/history.json";
 
 export const Experience = () => {
   return (
-    <div className={styles.taskManager}>
-      <h1 className={styles.header}>Task Manager - Running Experience</h1>
-      <div className={styles.tableHeader}>
-        <span>Process</span>
-        <span>Role</span>
-        <span>Runtime</span>
-        <span>CPU</span>
-        <span>Threads</span>
+    <div className={styles.browserWindow}>
+      <div className={styles.toolbar}>
+        <div className={styles.navButtons}>
+          <button>◀</button>
+          <button>▶</button>
+          <button>⟳</button>
+        </div>
+        <div className={styles.addressBar}>
+          <label>Address:</label>
+          <input
+            type="text"
+            value="C:\\Users\\Pratham\\Documents\\Experience.htm"
+            readOnly
+          />
+        </div>
       </div>
 
-      <div className={styles.rows}>
-        {history.map((job, index) => (
-          <div key={index} className={styles.row}>
-            <span className={styles.process}>{job.organisation}</span>
-            <span className={styles.role}>{job.role}</span>
-            <span className={styles.duration}>
-              {job.startDate} – {job.endDate}
-            </span>
-            <span className={styles.cpu}>
-              {(Math.random() * 30 + 5).toFixed(1)}%
-            </span>
-            <span className={styles.threads}>
-              {job.experiences.length + Math.floor(Math.random() * 3)}
-            </span>
-
-            <ul className={styles.log}>
-              {job.experiences.map((item, i) => (
-                <li key={i} className={styles.logItem}>
-                  {item}
-                </li>
+      <div className={styles.content}>
+        <h1>Work Experience</h1>
+        {history.map((item, i) => (
+          <div key={i} className={styles.entry}>
+            <h2>{item.organisation} — <span className={styles.role}>{item.role}</span></h2>
+            <h4>{item.location} | {item.startDate} – {item.endDate}</h4>
+            <ul>
+              {item.experiences.map((line, j) => (
+                <li key={j}>{line}</li>
               ))}
             </ul>
+            <hr />
           </div>
         ))}
+      </div>
+
+      <div className={styles.statusBar}>
+        <span>Loading page...</span>
       </div>
     </div>
   );

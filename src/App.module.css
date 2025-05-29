@@ -29,9 +29,9 @@
 }
 
 .icon img {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 6px;
+  width: 100px;
+  height: 100px;
+  margin-bottom: -10px;
 }
 
 .window {
@@ -83,8 +83,8 @@
   left: 0;
   height: 36px;
   width: 100%;
-  background-color: var(--color-dark);
-  border-top: 2px solid var(--color-highlight);
+  background-color: #989FA2;
+  border-top: 2px solid var(--color-light);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -94,21 +94,21 @@
 .startButton {
   display: flex;
   align-items: center;
-  gap: 6px;
-  background: var(--color-light);
-  border: 2px outset var(--color-highlight);
-  padding: 2px 8px;
+  padding: 0;
+  margin-left: 6px;
   cursor: pointer;
-  font-weight: bold;
 }
 
 .startButton img {
-  width: 18px;
-  height: 18px;
+  height: 100%;
+  max-height: 25px;
+  object-fit: contain;
+  image-rendering: pixelated;
 }
 
+
 .clock {
-  color: white;
+  color: black;
   font-size: 24px;
 }
 

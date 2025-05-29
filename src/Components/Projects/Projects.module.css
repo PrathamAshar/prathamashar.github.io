@@ -5,13 +5,16 @@
   padding: 3rem 10%;
   height: 100%;
   font-family: var(--font-w95);
-  background: linear-gradient(to bottom, #04152d, #0b2447);
-  color: var(--color-text);
+  background-color: var(--color-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow: hidden;
 }
 
 h1 {
   font-size: 2rem;
+  font-weight: bold;
   text-align: center;
   margin-bottom: 2rem;
   background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
@@ -29,24 +32,20 @@ h1 {
   }
 }
 
-.projectsWrapper {
+.carouselContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
-  position: relative;
+  padding-top: 11rem;
+  gap: 25rem;
 }
-
 .projectsCarousel {
   position: relative;
-  width: 600px;
-  height: 600px;
+  width: 800px;
+  height: 500px;
   transform-style: preserve-3d;
-  perspective: 1000px;
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
-  border: 3px double var(--color-accent);
-  border-radius: 20px;
-  box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.15);
+  transform: rotateY(0deg);
+  perspective: 1200px;
 }
 
 .projectCardWrapper {
@@ -55,40 +54,36 @@ h1 {
   left: 50%;
   transform-style: preserve-3d;
   transform-origin: center center;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  opacity: 0.35;
+  transition: transform 0.6s ease, opacity 0.5s ease;
+  transform: translate(-50%, -50%) rotateY(var(--angle, 0deg)) translateZ(500px);
+  opacity: 0.4;
   pointer-events: none;
-  filter: blur(1px);
-  z-index: 1;
 }
 
 .projectCardWrapper.active {
-  transform: translate(-50%, -50%) rotateY(0deg) translateZ(300px) scale(1.1);
-  z-index: 10;
   opacity: 1;
-  pointer-events: auto;
-  filter: none;
-  box-shadow: 0 0 20px var(--color-primary), 0 0 40px var(--color-secondary);
+  z-index: 5;
+  pointer-events: all;
+  transform: translate(-50%, -50%) rotateY(0deg) translateZ(700px) scale(1.1);
 }
 
 .arrowButton {
-  background: radial-gradient(circle, var(--color-primary) 0%, var(--color-secondary) 80%);
+  background: var(--color-primary);
   color: white;
   border: 2px solid var(--color-dark);
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  font-size: 1.8rem;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 15px rgba(87, 108, 188, 0.7);
-  transition: all 0.25s ease;
+  box-shadow: 0 0 15px rgba(87, 108, 188, 0.6);
+  transition: all 0.2s ease;
 }
 
 .arrowButton:hover {
-  background: var(--color-accent);
-  transform: rotate(10deg) scale(1.1);
-  box-shadow: 0 0 25px var(--color-accent);
+  background-color: var(--color-secondary);
+  transform: scale(1.1) rotate(10deg);
 }

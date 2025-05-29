@@ -8,6 +8,21 @@
       "source": "https://www.github.com/PrathamAshar/applai"
     },
     {
+      "title": "Quantum Fractal Data Comression",
+      "imageSrc": "projects/qfac.png",
+      "description": "Uses variational qunatum circuits to compress training data for neural networks.",
+      "skills": ["PyTorch", "TensorFlow", "Python"],
+      "demo": "https://docs.google.com/presentation/d/1P5lzaoDtqeiE85mIEvQhIOrfLsiJdrvpR9i92roSWXs/edit?slide=id.p1#slide=id.p1",
+      "source": "https://github.com/PrathamAshar/Quantum-Fractal-Adaptive-Compression"
+    },
+    {
+      "title": "Weather Journal",
+      "imageSrc": "projects/weatherjournal.png",
+      "description": "A full-stack web application that allows users to log weather data and journal entries.",
+      "skills": ["MongoDB", "NodeJS", "APIs"],
+      "demo": "weatherjournal.onrender.com"
+    },
+    {
       "title": "S&P 500 Inference Model",
       "imageSrc": "projects/sp.png",
       "description": "Trains model with sk-learn on Yahoo Finance API to predict the S&P 500 index.",

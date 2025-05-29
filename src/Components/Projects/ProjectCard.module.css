@@ -55,7 +55,7 @@
 .skill {
   font-size: 0.75rem;
   background: var(--color-secondary);
-  color: white;
+  color: black;
   padding: 4px 8px;
   border-radius: 4px;
 }
@@ -73,7 +73,7 @@
   border-radius: 5px;
   border: 2px outset var(--color-dark);
   background: var(--color-primary);
-  color: white;
+  color: var(--color-accent);
   transition: all 0.25s ease;
   text-align: center;
 }

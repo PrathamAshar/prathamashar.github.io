@@ -7,23 +7,37 @@ export const About = () => {
     {
       title: "Frontend Developer",
       description:
-        "I build sleek, performant, and responsive websites with React and JS magic.",
+        "I'm a frontend developer with experience in building responsive, eye-catching, and optimized websites.",
       icon: "about/cursor.png",
       status: "Active",
     },
     {
       title: "Data Engineer",
       description:
-        "I mine, clean, and transform data into insights that power decisions.",
+        "I have experience in data mining, cleaning, and transforming large datasets for downstream applications.",
       icon: "about/server.png",
+      status: "Running",
+    },
+    {
+      title: "Analyst",
+      description:
+        "I analyze data to extract insights, identify trends, and support business decisions through actionable recommendations.",
+      icon: "about/analytics.jpg",
       status: "Running",
     },
     {
       title: "AI/ML Engineer",
       description:
-        "From NLP models to ML pipelines — I design, train, and deploy smart systems.",
+        "I have worked on developing machine learning models and natural language processing applications.",
       icon: "about/gpt.png",
       status: "Experimental",
+    },
+        {
+      title: "Researcher",
+      description:
+        "I conduct research to explore new technologies, validate ideas, and build prototypes.",
+      icon: "about/research.jpg",
+      status: "Active",
     },
   ];
 

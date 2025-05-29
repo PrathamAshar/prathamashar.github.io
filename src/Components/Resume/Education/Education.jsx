@@ -8,9 +8,9 @@ const bootLogs = [
     degree: "B.S. in Computer Science & Machine Learning, Minor in Mathematics",
     lines: [
       "[OK] Loaded Module: Machine Learning Research (FIRE Program)",
-      "[OK] Status: Dean’s List (All Semesters)",
+      "[OK] Status: 3.91 GPA, Dean’s List (All Semesters)",
       "[OK] Installed: Algorithms, Data Structures, Systems",
-      "[OK] Installed: Quantum Computing, Linear Algebra, JS Web Dev",
+      "[OK] Installed: Functional Programming, JS Development",
     ],
   },
   {
@@ -19,8 +19,8 @@ const bootLogs = [
     degree: "High School Diploma in Engineering Technologies",
     lines: [
       "[OK] Achievements: AP Scholar, USACO Gold, ACSL Finalist",
-      "[OK] Installed: AP CS A (5), AP Calc BC (5), AP Physics C (5)",
-      "[OK] Installed: Civil & Mechanical Engineering Foundation",
+      "[OK] Installed: AP CS A (5), AP Calc BC (5), AP Stats (5)",
+      "[OK] Installed: AP Physics C (5), Quantum Computing, Python Programming",
     ],
   },
   {
@@ -28,8 +28,8 @@ const bootLogs = [
     location: "Edison, NJ",
     degree: "Mathematics Dual Enrollment Program",
     lines: [
-      "[OK] Installed: Discrete Math, Calc III, Differential Equations",
-      "[OK] Optimized for Advanced Theoretical Workload",
+      "[OK] 4.00 GPA, Completed 20 Credits",
+      "[OK] Installed: Discrete Math, Lin. Alg., Calc 3, Diff. Eq.",
     ],
   },
 ];

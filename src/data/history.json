@@ -1,4 +1,36 @@
 [
+      {
+      "role": "Incoming Software Development Engineer Intern",
+      "location": "Nashville, TN",
+      "organisation": "Amazon",
+      "startDate": "Sept. 2025",
+      "endDate": "Dec. 2025",
+      "experiences": [
+      ]
+    },
+      {
+      "role": "Business Analyst Intern",
+      "location": "McLean, VA",
+      "organisation": "Capital One",
+      "startDate": "June 2025",
+      "endDate": "Aug. 2025",
+      "experiences": [
+        "US Card, Alternate Data Strategy team",
+        "Handling and analyzing spending patterns, transaction types, and ability to pay on deposit data",
+        "Developing project using Python, SQL, and Tableau expand cashflow underwriting"
+      ]
+    },
+      {
+      "role": "Software Engineer Intern",
+      "location": "Remote",
+      "organisation": "VOICEplug AI",
+      "startDate": "May 2025",
+      "endDate": "Aug. 2025",
+      "experiences": [
+        "Assisting in coding, testing, and debugging software features",
+        "Testing, research, and developing AI models for speech recognition"
+      ]
+    },
     {
       "role": "Quantum Machine Learning Researcher",
       "location": "College Park, MD",
@@ -6,13 +38,13 @@
       "startDate": "Nov. 2024",
       "endDate": "Present",
       "experiences": [
-        "Working under Dr. Shabnam Jabeen to research various Machine Learning techniques for data analysis",
-        "Simulating cubit particle interactions using IonQ quantum computer"
+        "Working under Dr. Shabnam Jabeen to research Quantum Fractal Adaptive Compression (QFAC) algorithms",
+        "Analyzing performance of quantum datasets on neural networks"
       ]
     },
     {
-      "role": "Software Engineering Intern",
-      "location": "New York, NY",
+      "role": "Software Engineer Intern",
+      "location": "Remote",
       "organisation": "Radical AI",
       "startDate": "May 2024",
       "endDate": "Aug. 2024",
@@ -23,7 +55,7 @@
       ]
     },
     {
-      "role": "Software Engineering Intern",
+      "role": "Software Engineer Intern",
       "location": "Clark, NJ",
       "organisation": "Grotto Engineering",
       "startDate": "Nov. 2023",

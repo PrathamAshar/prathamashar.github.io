@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Home.module.css";
 import { getImageUrl } from "../../utils";
 
-export const Home = () => {
+export const Home = ({ onContactClick }) => {
   return (
     <div className={styles.window}>
       <div className={styles.titleBar}>
@@ -15,20 +15,26 @@ export const Home = () => {
       </div>
 
       <div className={styles.windowContent}>
-        <p className={styles.description}>
-          Hello! I am an aspiring software engineer and AI enthusiast studying Computer Science,
-          Machine Learning, and Math at the University of Maryland.
-        </p>
+        <img
+          src={getImageUrl("home/pfp.png")}
+          alt="Profile"
+          className={styles.homeImg}
+        />
+        <div className={styles.textBlock}>
+          <p className={styles.description}>
+            Hello! I'm an aspiring software engineer and ML enthusiast studying
+            Computer Science, Math, and Machine Learning at the University of
+            Maryland.  I'm passionate about leveraging data-driven methods to power fast, efficient decision-making.
 
-        <div className={styles.bottomRow}>
-          <img
-            src={getImageUrl("home/pfp.png")}
-            alt="Home Image"
-            className={styles.homeImg}
-          />
-          <a href="#contact" className={styles.contactBtn}>
+
+          </p>
+          <button
+            className={styles.contactBtn}
+            onClick={onContactClick}
+            type="button"
+          >
             Reach out!
-          </a>
+          </button>
         </div>
       </div>
     </div>
