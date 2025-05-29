@@ -18,7 +18,7 @@ const bootLogs = [
     location: "Edison, NJ",
     degree: "High School Diploma in Engineering Technologies",
     lines: [
-      "[OK] Achievements: AP Scholar, USACO Gold, ACSL Finalist",
+      "[OK] Achievements: AP Scholar with Distinction, USACO Gold",
       "[OK] Installed: AP CS A (5), AP Calc BC (5), AP Stats (5)",
       "[OK] Installed: AP Physics C (5), Quantum Computing, Python Programming",
     ],
