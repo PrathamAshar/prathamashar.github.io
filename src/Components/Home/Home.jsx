@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Home.module.css";
 import { getImageUrl } from "../../utils";
 
-export const Home = ({ onContactClick }) => {
+export const Home = ({ onContactClick, onClose }) => {
   return (
     <div className={styles.window}>
       <div className={styles.titleBar}>
@@ -10,7 +10,14 @@ export const Home = ({ onContactClick }) => {
         <div className={styles.windowButtons}>
           <button className={styles.btn}>–</button>
           <button className={styles.btn}>□</button>
-          <button className={styles.btn}>×</button>
+          <button
+            className={styles.btn}
+            onClick={onClose}
+            type="button"
+            aria-label="Close"
+          >
+            ×
+          </button>
         </div>
       </div>
 
@@ -24,9 +31,7 @@ export const Home = ({ onContactClick }) => {
           <p className={styles.description}>
             Hello! I'm an aspiring software engineer and ML enthusiast studying
             Computer Science, Math, and Machine Learning at the University of
-            Maryland.  I'm passionate about leveraging data-driven methods to power fast, efficient decision-making.
-
-
+            Maryland. I'm passionate about leveraging data-driven methods to power fast, efficient decision-making.
           </p>
           <button
             className={styles.contactBtn}

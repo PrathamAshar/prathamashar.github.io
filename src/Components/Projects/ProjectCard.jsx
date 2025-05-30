@@ -14,13 +14,9 @@ export const ProjectCard = ({
       />
       <h2 className={styles.title}>{title}</h2>
       <p className={styles.description}>{description}</p>
-      <ul className={styles.skills}>
-        {skills.map((skill, i) => (
-          <li key={i} className={styles.skill}>
-            {skill}
-          </li>
-        ))}
-      </ul>
+      <div className={styles.skillsInline}>
+        <strong>Skills:</strong>&nbsp;{skills.join(", ")}
+      </div>
       <div className={styles.actions}>
         {demo && (
           <a href={demo} target="_blank" rel="noreferrer" className={styles.button}>

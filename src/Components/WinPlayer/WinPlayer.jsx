@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import styles from "./WinPlayer.module.css";
 import { getImageUrl } from "../../utils";
 
-export const WinPlayer = () => {
+export const WinPlayer = ({ onClose }) => {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -24,7 +24,7 @@ export const WinPlayer = () => {
         <div className={styles.windowButtons}>
           <button className={styles.btn}>–</button>
           <button className={styles.btn}>□</button>
-          <button className={styles.btn}>×</button>
+          <button className={styles.btn} onClick={onClose}>×</button>
         </div>
       </div>
       <div className={styles.playerContent}>

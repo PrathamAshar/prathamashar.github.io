@@ -24,7 +24,10 @@ function App() {
     snake: false
   });
 
-  // Window sizes for each window
+  // Add state for Home and WinPlayer visibility
+  const [showHome, setShowHome] = useState(true);
+  const [showWinPlayer, setShowWinPlayer] = useState(true);
+
   const windowSizes = {
     about: { width: 900, height: 550, y: 80 },
     education: { width: 800, height: 550, y: 120 },
@@ -99,7 +102,12 @@ function App() {
 
   return (
     <div className={styles.desktop}>
-      <Home onContactClick={() => toggleWindow("contact")} />
+      {showHome && (
+        <Home
+          onContactClick={() => toggleWindow("contact")}
+          onClose={() => setShowHome(false)}
+        />
+      )}
       <div className={styles.iconGrid}>
         <div className={styles.icon} onClick={() => toggleWindow("about")}>
           <img src={getImageUrl("about/about.png")} alt="About" />
@@ -268,13 +276,23 @@ function App() {
         </Rnd>
       )}
 
+      {showWinPlayer && (
+        <WinPlayer onClose={() => setShowWinPlayer(false)} />
+      )}
+
       <div className={styles.taskbar}>
-        <div className={styles.startButton}>
+        <div
+          className={styles.startButton}
+          onClick={() => {
+            setShowHome(true);
+            setShowWinPlayer(true);
+          }}
+          style={{ cursor: "pointer" }}
+        >
           <img src={getImageUrl("start.jpg")} alt="Start" />
         </div>
         <div className={styles.clock}>{time}</div>
       </div>
-      <WinPlayer />
     </div>
   );
 }
