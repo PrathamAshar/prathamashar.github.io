@@ -1,97 +1,57 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./App.module.css";
-import { Mail, Linkedin, Github, ExternalLink, ChevronDown } from "lucide-react";
+import { Mail, Linkedin, Github, ExternalLink, ChevronDown, Sparkles } from "lucide-react";
 import historyData from "./data/history.json";
 import projectsData from "./data/projects.json";
 import skillsData from "./data/skills.json";
 
 function App() {
-  const [activeSection, setActiveSection] = useState("home");
-  const [isVisible, setIsVisible] = useState({});
-  const observerRef = useRef(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [cursorVariant, setCursorVariant] = useState("default");
+  const cursorRef = useRef(null);
 
   useEffect(() => {
-    // Intersection Observer for scroll animations
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible((prev) => ({ ...prev, [entry.target.id]: true }));
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    // Observe all sections
-    const sections = document.querySelectorAll("section[id]");
-    sections.forEach((section) => observerRef.current.observe(section));
-
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
-    };
-  }, []);
-
-  // Update active section on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["home", "about", "experience", "skills", "projects", "contact"];
-      const scrollPosition = window.scrollY + 100;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
-
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   const aboutItems = [
     {
       title: "Frontend Developer",
       description: "Building responsive, eye-catching, and optimized websites with modern frameworks.",
       icon: "💻",
+      gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
     },
     {
       title: "Data Engineer",
       description: "Data mining, cleaning, and transforming large datasets for downstream applications.",
       icon: "🔧",
+      gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
     },
     {
       title: "Analyst",
       description: "Extracting insights, identifying trends, and supporting business decisions.",
       icon: "📊",
+      gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
     },
     {
       title: "AI/ML Engineer",
       description: "Developing machine learning models and natural language processing applications.",
       icon: "🤖",
+      gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
     },
     {
       title: "Researcher",
       description: "Exploring new technologies, validating ideas, and building prototypes.",
       icon: "🔬",
+      gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
     },
   ];
 
-  // Group skills by category
   const skillsByCategory = skillsData.reduce((acc, skill) => {
     if (!acc[skill.category]) {
       acc[skill.category] = [];
@@ -100,25 +60,73 @@ function App() {
     return acc;
   }, {});
 
+  const handleCardMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = (y - centerY) / 10;
+    const rotateY = (centerX - x) / 10;
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+  };
+
+  const handleCardMouseLeave = (e) => {
+    e.currentTarget.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)";
+  };
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className={styles.app}>
+      {/* Custom Cursor */}
+      <div
+        className={styles.cursor}
+        style={{
+          left: `${mousePosition.x}px`,
+          top: `${mousePosition.y}px`,
+        }}
+      />
+      <div
+        className={styles.cursorGlow}
+        style={{
+          left: `${mousePosition.x}px`,
+          top: `${mousePosition.y}px`,
+        }}
+      />
+
+      {/* Floating Background Elements */}
+      <div className={styles.floatingBg}>
+        <div className={styles.floatingShape} style={{ top: "10%", left: "5%" }} />
+        <div className={styles.floatingShape} style={{ top: "60%", right: "10%" }} />
+        <div className={styles.floatingShape} style={{ bottom: "20%", left: "15%" }} />
+      </div>
+
       {/* Navigation */}
       <nav className={styles.nav} data-testid="main-navigation">
         <div className={styles.navContent}>
           <a href="#home" className={styles.logo} data-testid="logo">
-            PA
+            <Sparkles size={20} /> PA
           </a>
           <ul className={styles.navLinks}>
             {["about", "experience", "skills", "projects", "contact"].map((section) => (
               <li key={section}>
                 <a
                   href={`#${section}`}
-                  className={activeSection === section ? styles.active : ""}
                   onClick={(e) => {
                     e.preventDefault();
                     scrollToSection(section);
                   }}
                   data-testid={`nav-${section}`}
+                  onMouseEnter={() => setCursorVariant("link")}
+                  onMouseLeave={() => setCursorVariant("default")}
                 >
                   {section.charAt(0).toUpperCase() + section.slice(1)}
                 </a>
@@ -129,34 +137,44 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className={`${styles.hero} ${styles.section}`} data-testid="hero-section">
+      <section id="home" className={styles.hero} data-testid="hero-section">
         <div className={styles.heroContent}>
-          <div className={styles.heroText}>
+          <div className={styles.heroGlitch}>
             <h1 className={styles.heroTitle} data-testid="hero-title">
-              Hi, I'm <span className={styles.gradient}>Pratham Ashar</span>
+              PRATHAM ASHAR
             </h1>
-            <p className={styles.heroSubtitle} data-testid="hero-subtitle">
-              Software Engineer & Quantum ML Researcher
-            </p>
-            <p className={styles.heroDescription}>
-              Passionate about building innovative solutions at the intersection of AI, quantum computing, and web development.
-            </p>
-            <div className={styles.heroButtons}>
-              <button
-                className={styles.primaryButton}
-                onClick={() => scrollToSection("contact")}
-                data-testid="hero-contact-button"
-              >
-                Get in Touch
-              </button>
-              <button
-                className={styles.secondaryButton}
-                onClick={() => scrollToSection("projects")}
-                data-testid="hero-projects-button"
-              >
-                View Projects
-              </button>
-            </div>
+            <h1 className={styles.heroTitle} data-glitch="PRATHAM ASHAR">
+              PRATHAM ASHAR
+            </h1>
+          </div>
+          <p className={styles.heroSubtitle} data-testid="hero-subtitle">
+            Software Engineer & Quantum ML Researcher
+          </p>
+          <p className={styles.heroDescription}>
+            Building the future at the intersection of <span className={styles.highlight}>AI</span>,{" "}
+            <span className={styles.highlight}>quantum computing</span>, and{" "}
+            <span className={styles.highlight}>web development</span>
+          </p>
+          <div className={styles.heroButtons}>
+            <button
+              className={styles.primaryButton}
+              onClick={() => scrollToSection("contact")}
+              data-testid="hero-contact-button"
+              onMouseEnter={() => setCursorVariant("button")}
+              onMouseLeave={() => setCursorVariant("default")}
+            >
+              <span>Get in Touch</span>
+              <div className={styles.buttonGlow} />
+            </button>
+            <button
+              className={styles.secondaryButton}
+              onClick={() => scrollToSection("projects")}
+              data-testid="hero-projects-button"
+              onMouseEnter={() => setCursorVariant("button")}
+              onMouseLeave={() => setCursorVariant("default")}
+            >
+              View Projects
+            </button>
           </div>
           <div className={styles.heroScroll} onClick={() => scrollToSection("about")}>
             <ChevronDown className={styles.scrollIcon} />
@@ -165,13 +183,11 @@ function App() {
       </section>
 
       {/* About Section */}
-      <section
-        id="about"
-        className={`${styles.section} ${isVisible.about ? styles.visible : ""}`}
-        data-testid="about-section"
-      >
+      <section id="about" className={styles.section} data-testid="about-section">
         <div className={styles.container}>
-          <h2 className={styles.sectionTitle} data-testid="about-title">What I Do</h2>
+          <h2 className={styles.sectionTitle} data-testid="about-title">
+            <span className={styles.titleNumber}>01.</span> What I Do
+          </h2>
           <div className={styles.aboutGrid}>
             {aboutItems.map((item, index) => (
               <div
@@ -179,7 +195,10 @@ function App() {
                 className={styles.aboutCard}
                 style={{ animationDelay: `${index * 0.1}s` }}
                 data-testid={`about-card-${index}`}
+                onMouseMove={handleCardMouseMove}
+                onMouseLeave={handleCardMouseLeave}
               >
+                <div className={styles.cardGradient} style={{ background: item.gradient }} />
                 <div className={styles.aboutIcon}>{item.icon}</div>
                 <h3 className={styles.aboutCardTitle}>{item.title}</h3>
                 <p className={styles.aboutCardDescription}>{item.description}</p>
@@ -190,40 +209,39 @@ function App() {
       </section>
 
       {/* Experience Section */}
-      <section
-        id="experience"
-        className={`${styles.section} ${styles.altSection} ${isVisible.experience ? styles.visible : ""}`}
-        data-testid="experience-section"
-      >
+      <section id="experience" className={styles.section} data-testid="experience-section">
         <div className={styles.container}>
-          <h2 className={styles.sectionTitle} data-testid="experience-title">Experience</h2>
-          <div className={styles.timeline}>
+          <h2 className={styles.sectionTitle} data-testid="experience-title">
+            <span className={styles.titleNumber}>02.</span> Experience
+          </h2>
+          <div className={styles.experienceGrid}>
             {historyData.map((item, index) => (
               <div
                 key={index}
-                className={styles.timelineItem}
+                className={styles.experienceCard}
                 style={{ animationDelay: `${index * 0.1}s` }}
                 data-testid={`experience-item-${index}`}
+                onMouseMove={handleCardMouseMove}
+                onMouseLeave={handleCardMouseLeave}
               >
-                <div className={styles.timelineMarker}></div>
-                <div className={styles.timelineContent}>
-                  <div className={styles.timelineHeader}>
-                    <h3 className={styles.timelineRole}>{item.role}</h3>
-                    <span className={styles.timelineDate}>
-                      {item.startDate} - {item.endDate}
-                    </span>
+                <div className={styles.experienceHeader}>
+                  <div>
+                    <h3 className={styles.experienceRole}>{item.role}</h3>
+                    <p className={styles.experienceOrg}>
+                      {item.organisation} • {item.location}
+                    </p>
                   </div>
-                  <p className={styles.timelineOrg}>
-                    {item.organisation} • {item.location}
-                  </p>
-                  {item.experiences.length > 0 && (
-                    <ul className={styles.timelineExperiences}>
-                      {item.experiences.map((exp, expIndex) => (
-                        <li key={expIndex}>{exp}</li>
-                      ))}
-                    </ul>
-                  )}
+                  <span className={styles.experienceDate}>
+                    {item.startDate} - {item.endDate}
+                  </span>
                 </div>
+                {item.experiences.length > 0 && (
+                  <ul className={styles.experienceList}>
+                    {item.experiences.map((exp, expIndex) => (
+                      <li key={expIndex}>{exp}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
             ))}
           </div>
@@ -231,14 +249,12 @@ function App() {
       </section>
 
       {/* Skills Section */}
-      <section
-        id="skills"
-        className={`${styles.section} ${isVisible.skills ? styles.visible : ""}`}
-        data-testid="skills-section"
-      >
+      <section id="skills" className={styles.section} data-testid="skills-section">
         <div className={styles.container}>
-          <h2 className={styles.sectionTitle} data-testid="skills-title">Skills & Technologies</h2>
-          <div className={styles.skillsContainer}>
+          <h2 className={styles.sectionTitle} data-testid="skills-title">
+            <span className={styles.titleNumber}>03.</span> Skills & Technologies
+          </h2>
+          <div className={styles.skillsGrid}>
             {Object.entries(skillsByCategory).map(([category, skills], catIndex) => (
               <div
                 key={category}
@@ -253,6 +269,8 @@ function App() {
                       key={skillIndex}
                       className={styles.skillTag}
                       data-testid={`skill-${skill.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                      onMouseEnter={() => setCursorVariant("skill")}
+                      onMouseLeave={() => setCursorVariant("default")}
                     >
                       {skill.title}
                     </span>
@@ -265,13 +283,11 @@ function App() {
       </section>
 
       {/* Projects Section */}
-      <section
-        id="projects"
-        className={`${styles.section} ${styles.altSection} ${isVisible.projects ? styles.visible : ""}`}
-        data-testid="projects-section"
-      >
+      <section id="projects" className={styles.section} data-testid="projects-section">
         <div className={styles.container}>
-          <h2 className={styles.sectionTitle} data-testid="projects-title">Featured Projects</h2>
+          <h2 className={styles.sectionTitle} data-testid="projects-title">
+            <span className={styles.titleNumber}>04.</span> Featured Projects
+          </h2>
           <div className={styles.projectsGrid}>
             {projectsData.map((project, index) => (
               <div
@@ -279,43 +295,48 @@ function App() {
                 className={styles.projectCard}
                 style={{ animationDelay: `${index * 0.1}s` }}
                 data-testid={`project-card-${index}`}
+                onMouseMove={handleCardMouseMove}
+                onMouseLeave={handleCardMouseLeave}
               >
-                <div className={styles.projectContent}>
-                  <h3 className={styles.projectTitle}>{project.title}</h3>
-                  <p className={styles.projectDescription}>{project.description}</p>
-                  <div className={styles.projectSkills}>
-                    {project.skills.map((skill, skillIndex) => (
-                      <span key={skillIndex} className={styles.projectSkill}>
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                  <div className={styles.projectLinks}>
-                    {project.demo && (
-                      <a
-                        href={project.demo.startsWith("http") ? project.demo : `https://${project.demo}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.projectLink}
-                        data-testid={`project-demo-${index}`}
-                      >
-                        <ExternalLink size={16} />
-                        Demo
-                      </a>
-                    )}
-                    {project.source && (
-                      <a
-                        href={project.source}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.projectLink}
-                        data-testid={`project-source-${index}`}
-                      >
-                        <Github size={16} />
-                        Source
-                      </a>
-                    )}
-                  </div>
+                <div className={styles.projectNumber}>{String(index + 1).padStart(2, '0')}</div>
+                <h3 className={styles.projectTitle}>{project.title}</h3>
+                <p className={styles.projectDescription}>{project.description}</p>
+                <div className={styles.projectSkills}>
+                  {project.skills.map((skill, skillIndex) => (
+                    <span key={skillIndex} className={styles.projectSkill}>
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+                <div className={styles.projectLinks}>
+                  {project.demo && (
+                    <a
+                      href={project.demo.startsWith("http") ? project.demo : `https://${project.demo}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.projectLink}
+                      data-testid={`project-demo-${index}`}
+                      onMouseEnter={() => setCursorVariant("link")}
+                      onMouseLeave={() => setCursorVariant("default")}
+                    >
+                      <ExternalLink size={16} />
+                      Demo
+                    </a>
+                  )}
+                  {project.source && (
+                    <a
+                      href={project.source}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.projectLink}
+                      data-testid={`project-source-${index}`}
+                      onMouseEnter={() => setCursorVariant("link")}
+                      onMouseLeave={() => setCursorVariant("default")}
+                    >
+                      <Github size={16} />
+                      Source
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
@@ -324,22 +345,22 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section
-        id="contact"
-        className={`${styles.section} ${isVisible.contact ? styles.visible : ""}`}
-        data-testid="contact-section"
-      >
+      <section id="contact" className={styles.section} data-testid="contact-section">
         <div className={styles.container}>
           <div className={styles.contactContent}>
-            <h2 className={styles.sectionTitle} data-testid="contact-title">Let's Connect</h2>
+            <h2 className={styles.sectionTitle} data-testid="contact-title">
+              <span className={styles.titleNumber}>05.</span> Let's Connect
+            </h2>
             <p className={styles.contactDescription}>
-              I'm always open to new opportunities, collaborations, or just a friendly chat. Feel free to reach out!
+              I'm always open to new opportunities, collaborations, or just a friendly chat.
             </p>
             <div className={styles.contactLinks}>
               <a
                 href="mailto:pashar@umd.edu"
                 className={styles.contactLink}
                 data-testid="contact-email"
+                onMouseMove={handleCardMouseMove}
+                onMouseLeave={handleCardMouseLeave}
               >
                 <Mail size={24} />
                 <span>pashar@umd.edu</span>
@@ -350,6 +371,8 @@ function App() {
                 rel="noopener noreferrer"
                 className={styles.contactLink}
                 data-testid="contact-linkedin"
+                onMouseMove={handleCardMouseMove}
+                onMouseLeave={handleCardMouseLeave}
               >
                 <Linkedin size={24} />
                 <span>LinkedIn</span>
@@ -360,6 +383,8 @@ function App() {
                 rel="noopener noreferrer"
                 className={styles.contactLink}
                 data-testid="contact-github"
+                onMouseMove={handleCardMouseMove}
+                onMouseLeave={handleCardMouseLeave}
               >
                 <Github size={24} />
                 <span>GitHub</span>
@@ -371,7 +396,7 @@ function App() {
 
       {/* Footer */}
       <footer className={styles.footer} data-testid="footer">
-        <p>© 2025 Pratham Ashar. Designed with passion and precision.</p>
+        <p>© 2025 Pratham Ashar • Crafted with code & creativity</p>
       </footer>
     </div>
   );
