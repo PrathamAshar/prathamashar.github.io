@@ -1068,16 +1068,46 @@
     padding: 1rem 0;
   }
   
+  .sidebarHeader {
+    padding: 0 1rem 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .sidebarLogo {
+    font-size: 2rem;
+  }
+  
   .navList {
     display: flex;
     overflow-x: auto;
     gap: 0.5rem;
     padding: 0 1rem;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+  }
+  
+  .navList::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
   }
   
   .navItem {
-    padding: 0.75rem 1.5rem;
+    padding: 0.875rem 1.75rem;
     white-space: nowrap;
+    border-radius: 50px;
+    font-size: 0.9rem;
+  }
+  
+  .navItem::before {
+    display: none;
+  }
+  
+  .navItem::after {
+    display: none;
+  }
+  
+  .navItemActive {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    padding-left: 1.75rem;
   }
   
   .sidebarFooter {
@@ -1086,31 +1116,118 @@
   
   .mainContent {
     padding: 2rem 1.5rem;
+    height: calc(100vh - 150px);
   }
   
   .heroName {
-    font-size: 3rem;
+    font-size: 2.5rem;
+    letter-spacing: -1px;
   }
   
   .heroRole {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+  }
+  
+  .heroDescription {
+    font-size: 1rem;
+  }
+  
+  .heroButtons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
   }
   
   .sectionTitle {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
+    margin-bottom: 2rem;
+  }
+  
+  .sectionTitle::before {
+    width: 15px;
+    height: 15px;
+    top: -8px;
+    left: -8px;
   }
   
   .bentoGrid {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+    gap: 1rem;
   }
   
   .bentoCard {
     grid-column: 1 / 2 !important;
     grid-row: auto !important;
+    min-height: 180px;
+  }
+  
+  .bentoIcon {
+    font-size: 3rem;
+  }
+  
+  .bentoTitle {
+    font-size: 1.5rem;
+  }
+  
+  .experienceCard {
+    grid-template-columns: 70px 1fr;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+  }
+  
+  .experienceYear {
+    font-size: 2rem;
+  }
+  
+  .experienceRole {
+    font-size: 1.5rem;
+  }
+  
+  .experienceOrg {
+    font-size: 1rem;
+  }
+  
+  .skillCategory {
+    padding: 2rem 1.5rem;
+  }
+  
+  .skillCategoryTitle {
+    font-size: 1.5rem;
   }
   
   .masonryGrid {
     grid-template-columns: 1fr;
+  }
+  
+  .projectCard {
+    padding: 2rem 1.5rem;
+  }
+  
+  .projectTitle {
+    font-size: 1.5rem;
+  }
+  
+  .contactContainer {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .contactDescription {
+    font-size: 1.1rem;
+  }
+  
+  .contactCard {
+    padding: 1.5rem 2rem;
+  }
+  
+  .contactCard:hover {
+    transform: translateX(8px) scale(1.01);
   }
 }
