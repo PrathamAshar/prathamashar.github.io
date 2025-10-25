@@ -1231,3 +1231,99 @@
     transform: translateX(8px) scale(1.01);
   }
 }
+
+/* Extra small phones */
+@media (max-width: 480px) {
+  .mainContent {
+    padding: 1.5rem 1rem;
+  }
+  
+  .heroName {
+    font-size: 2rem;
+  }
+  
+  .heroRole {
+    font-size: 1.1rem;
+  }
+  
+  .heroDescription {
+    font-size: 0.95rem;
+  }
+  
+  .heroGreeting {
+    font-size: 0.9rem;
+  }
+  
+  .primaryButton,
+  .secondaryButton {
+    padding: 1rem 2rem;
+    font-size: 0.95rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .bentoCard {
+    padding: 1.75rem;
+  }
+  
+  .bentoIcon {
+    font-size: 2.5rem;
+  }
+  
+  .bentoTitle {
+    font-size: 1.3rem;
+  }
+  
+  .bentoDescription {
+    font-size: 0.9rem;
+  }
+  
+  .experienceCard {
+    grid-template-columns: 60px 1fr;
+    gap: 1.25rem;
+    padding: 1.75rem 1.25rem;
+  }
+  
+  .experienceYear {
+    font-size: 1.75rem;
+  }
+  
+  .experienceRole {
+    font-size: 1.3rem;
+  }
+  
+  .skillCategory {
+    padding: 1.75rem 1.25rem;
+  }
+  
+  .skillCategoryTitle {
+    font-size: 1.3rem;
+  }
+  
+  .skillTag {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.85rem;
+  }
+  
+  .projectCard {
+    padding: 1.75rem 1.25rem;
+  }
+  
+  .projectTitle {
+    font-size: 1.3rem;
+  }
+  
+  .projectDescription {
+    font-size: 0.9rem;
+  }
+  
+  .contactCard {
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .contactValue {
+    font-size: 1rem;
+  }
+}
