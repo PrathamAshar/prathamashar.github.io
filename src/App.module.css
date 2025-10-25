@@ -52,7 +52,7 @@
 /* Sidebar Navigation */
 .sidebar {
   width: 280px;
-  background: linear-gradient(180deg, #1a1033 0%, #2d1b4e 100%);
+  background: linear-gradient(180deg, #1a0808 0%, #2d0f0f 100%);
   color: white;
   display: flex;
   flex-direction: column;
@@ -69,7 +69,7 @@
   right: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(180deg, rgba(102, 126, 234, 0.5) 0%, rgba(240, 147, 251, 0.5) 100%);
+  background: linear-gradient(180deg, rgba(220, 38, 38, 0.5) 0%, rgba(249, 115, 22, 0.5) 100%);
 }
 
 .sidebarHeader {
