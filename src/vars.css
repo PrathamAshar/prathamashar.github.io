@@ -1,13 +1,37 @@
 :root {
-  /* Windows 95 Theme Colors */
-  --color-bg: #c0c0c0;            /* Light gray background */
-  --color-dark: #808080;          /* Dark gray borders */
-  --color-light: #ffffff;         /* Light window fill */
-  --color-shadow: #404040;        /* Drop shadows */
-  --color-highlight: #dfdfdf;     /* Inner bevel */
-  --color-accent: #000080;        /* Title bar background */
-  --color-accent-text: #ffffff;   /* Title bar text */
+  /* Warm Minimalist Color Palette */
+  --color-bg-primary: #FAF8F6;
+  --color-bg-secondary: #FFF9F5;
+  --color-bg-card: #FFFFFF;
+  --color-accent-primary: #FF6B6B;
+  --color-accent-secondary: #FF8E53;
+  --color-accent-gradient: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+  --color-text-primary: #2D3436;
+  --color-text-secondary: #636E72;
+  --color-text-light: #95A5A6;
+  --color-gold: #FFD93D;
+  --color-border: #E8E5E1;
+  --color-shadow: rgba(0, 0, 0, 0.08);
+  --color-shadow-hover: rgba(0, 0, 0, 0.12);
 
   /* Fonts */
-  --font-w95: 'VT323', monospace;
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Playfair Display', serif;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
 }
