@@ -271,7 +271,7 @@ function App() {
         data-testid="projects-section"
       >
         <div className={styles.container}>
-          <h2 className={styles.sectionTitle" data-testid="projects-title">Featured Projects</h2>
+          <h2 className={styles.sectionTitle} data-testid="projects-title">Featured Projects</h2>
           <div className={styles.projectsGrid}>
             {projectsData.map((project, index) => (
               <div
