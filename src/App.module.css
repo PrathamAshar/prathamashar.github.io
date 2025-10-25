@@ -155,7 +155,7 @@
 
 .navItemActive {
   color: white;
-  background: linear-gradient(90deg, rgba(102, 126, 234, 0.15) 0%, transparent 100%);
+  background: linear-gradient(90deg, rgba(220, 38, 38, 0.15) 0%, transparent 100%);
   padding-left: 2.5rem;
 }
 
