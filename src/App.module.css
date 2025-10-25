@@ -5,7 +5,7 @@
   display: flex;
   height: 100vh;
   overflow: hidden;
-  background: linear-gradient(135deg, #faf8f6 0%, #e8e4f3 100%);
+  background: linear-gradient(135deg, #faf8f6 0%, #ffe8e8 100%);
   font-family: 'Space Grotesk', sans-serif;
   position: relative;
 }
@@ -16,7 +16,7 @@
   position: fixed;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(102, 126, 234, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.08) 0%, transparent 70%);
   border-radius: 50%;
   top: -200px;
   right: -200px;
@@ -29,7 +29,7 @@
   position: fixed;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(245, 87, 108, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.06) 0%, transparent 70%);
   border-radius: 50%;
   bottom: -150px;
   left: 100px;
