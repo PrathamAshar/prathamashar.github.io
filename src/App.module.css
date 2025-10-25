@@ -397,7 +397,7 @@
 }
 
 .secondaryButton:hover {
-  background: #667eea;
+  background: #dc2626;
   color: white;
   transform: translateY(-4px);
   padding-right: 3.5rem;
